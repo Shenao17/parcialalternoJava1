@@ -17,17 +17,17 @@ public class Main {
 
         //login
         System.out.println("LOGIN");
-        System.out.println("Ingresa Nombre de Usuario: ");
-        String usuario = keyEntry.nextLine();
+        System.out.print("Ingresa Nombre de Usuario: ");
+        String usuario = keyEntry.nextLine().trim();
 
-        System.out.println("Ingresa Correo:");
-        String email = keyEntry.nextLine();
+        System.out.print("Ingresa Correo: ");
+        String email = keyEntry.nextLine().trim();
 
-        System.out.println("Ingresa Contraseña: ");
-        String password = keyEntry.nextLine();
+        System.out.print("Ingresa Contraseña: ");
+        String password = keyEntry.nextLine().trim();
 
-        if(usuario.isEmpty() || email.isEmpty() || password.isEmpty()  ){
-            System.out.println("Todos los Campos son Obligatorios");
+        if (usuario.isEmpty() || email.isEmpty() || password.isEmpty()) {
+            System.out.println("Todos los campos son obligatorios");
             System.exit(0);
         }
 
@@ -35,7 +35,10 @@ public class Main {
         String correoValido = "sebas@mail.com";
         String passValida = "1234";
 
-        if (!usuario.equals(userValido) || !email.equals(correoValido) || !password.equals(passValida)) {
+        if (!usuario.equalsIgnoreCase(userValido) ||
+                !email.equalsIgnoreCase(correoValido) ||
+                !password.equals(passValida)) {
+
             System.out.println("Credenciales incorrectas. Acceso denegado.");
             System.exit(0);
         }
