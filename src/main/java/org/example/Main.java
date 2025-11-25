@@ -49,7 +49,9 @@ public class Main {
         System.out.println("\n******************");
         System.out.println("***** APP *****");
         System.out.println("******************");
-
+        System.out.println("1. Guardar Prenda");
+        System.out.println("2. Mostrar Inventario");
+        System.out.println("3. SALIR");
 
         System.out.println("Digita una opcion: ");
         menuOption=keyEntry.nextInt();
