@@ -40,7 +40,7 @@ public class Main {
             System.exit(0);
         }
 
-        System.out.println("Login exitoso. Bienvenido " + usuario + "!";
+        System.out.println("Login exitoso. Bienvenido " + usuario + "!");
 
 
         System.out.println("\n******************");
@@ -55,7 +55,7 @@ public class Main {
             try {
 
                 System.out.println("👕 Bienvenido a gestor de prendas...\n¿Qué quieres realizar?\n");
-                System.out.println(GREEN + "1) Guardar una prenda en BD 📝");
+                System.out.println("1) Guardar una prenda en BD 📝");
                 System.out.println("2) Mostrar el inventario de prendas 📦");
                 System.out.println("3) SALIR ❌\n");
 
@@ -67,54 +67,52 @@ public class Main {
                 if (menuOption == 1) {
                     try {
                         System.out.print("Nombre de la prenda: ");
-                        String nombre = nextLine();
+                        String nombre = keyEntry.nextLine();
 
                         System.out.print("Talla (S/M/L/XL): ");
-                        String talla = sc.nextLine();
+                        String talla = keyEntry.nextLine();
 
                         System.out.print("Precio (entero): ");
-                        int precio = Integer.parseInt(sc.nextLine().trim());
-                        System.out.println(GREEN + "✅ Prenda guardada: " + nombre + " - " + talla + " - $" + precio);
+                        int precio = Integer.parseInt(keyEntry.nextLine().trim());
+                        System.out.println("✅ Prenda guardada: " + nombre + " - " + talla + " - $" + precio);
                     } catch (NumberFormatException e) {
-                        System.out.println(RED + "Precio inválido. Debe ser un número entero." );
+                        System.out.println("Precio inválido. Debe ser un número entero." );
                     }
                 } else if (menuOption == 2) {
 
                     //implementar algoritmo para recorrer y mostrar la lista en el formato pedido
-                    System.out.println(YELLOW + "📋 Inventario (demo):");
+                    System.out.println("📋 Inventario (demo):");
                     System.out.println("- Camiseta | M | $45000");
                     System.out.println("- Jean     | L | $120000");
 
 
                 } else if (menuOption == 3) {
-                        //implementar algoritmo para cerrar el programa
+                    System.out.println("Programa Finalizado, Hasta Luego! ");
+                    break;
                 } else {
-                    System.out.println(RED + "Opción no válida. Prueba con un número del 1 al 5.");
+                    System.out.println("Opción no válida. Prueba con un número del 1 al 3.");
                 }
 
 
-                if (menuOption != null && menuOption != 5) {
+                if (menuOption != null && menuOption != 3) {
                     System.out.print("\nPresiona ENTER para continuar...");
                     keyEntry.nextLine();
                     System.out.println();
                 }
 
             } catch (InputMismatchException ex) {
-                System.out.println(RED + "Entrada inválida. Debes digitar un número (1-5).");
+                System.out.println("Entrada inválida. Debes digitar un número (1-3).");
                 keyEntry.nextLine();
                 menuOption = -1;
-                System.out.print("\nPresiona ENTER para continuar...");
-                keyEntry.nextLine();
-                System.out.println();
             } catch (Exception ex) {
                 // Cualquier otra excepción no prevista
-                System.out.println(RED + "Ups, algo salió mal: " + ex.getMessage());
+                System.out.println("Ups, algo salió mal: " + ex.getMessage());
                 System.out.print("\nPresiona ENTER para continuar...");
                 keyEntry.nextLine();
                 System.out.println();
             }
 
-        } while (menuOption == null || menuOption != 5);
+        } while (menuOption != 3);
 
     }
 }
