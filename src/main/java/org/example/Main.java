@@ -1,5 +1,8 @@
 package org.example;
 
+import java.util.Scanner;
+import java.util.InputMismatchException;
+
 public class Main {
     public static void main(String[] args) {
 
@@ -12,6 +15,32 @@ public class Main {
         //-correo
         //-contraseña
 
+        //login
+        System.out.println("LOGIN");
+        System.out.println("Ingresa Nombre de Usuario: ");
+        String usuario = keyEntry.nextLine();
+
+        System.out.println("Ingresa Correo:");
+        String email = keyEntry.nextLine();
+
+        System.out.println("Ingresa Contraseña: ");
+        String password = keyEntry.nextLine();
+
+        if(usuario.isEmpty() || email.isEmpty() || password.isEmpty()  ){
+            System.out.println("Todos los Campos son Obligatorios");
+            System.exit(0);
+        }
+
+        String userValido = "sebas";
+        String correoValido = "sebas@mail.com";
+        String passValida = "1234";
+
+        if (!usuario.equals(userValido) || !email.equals(correoValido) || !password.equals(passValida)) {
+            System.out.println("Credenciales incorrectas. Acceso denegado.");
+            System.exit(0);
+        }
+
+        System.out.println("Login exitoso. Bienvenido " + usuario + "!";
 
 
         System.out.println("\n******************");
@@ -58,7 +87,7 @@ public class Main {
 
 
                 } else if (menuOption == 3) {
-                    //implementar algoritmo para cerrar el programa
+                        //implementar algoritmo para cerrar el programa
                 } else {
                     System.out.println(RED + "Opción no válida. Prueba con un número del 1 al 5.");
                 }
